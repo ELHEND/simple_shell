@@ -12,4 +12,6 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+void print_to_98(int n);
+
 #endif
