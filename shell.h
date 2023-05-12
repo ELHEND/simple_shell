@@ -12,6 +12,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+/* HW_beaucode.c */
 void print_to_98(int n);
 
 #endif
