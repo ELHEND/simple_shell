@@ -37,8 +37,7 @@ char *read_line(void)
 /**
  *  * parse_line - Split a string into tokens.
  *   * @line: the string to tokenize.
- *    *
- *     * Return: An array of pointers to tokens.
+ * Return: An array of pointers to tokens.
  */
 char **parse_line(char *line)
 {
