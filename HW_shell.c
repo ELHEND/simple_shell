@@ -21,18 +21,16 @@ int main(void)
 }
 
 /**
- * *read_line - Read the input line from stdin
+ * *read_line - Reads the input line from stdin
  *
  * Return: pointer to the line.
  */
 char *read_line(void)
 {
-	char *line = NULL;
-	size_t bufsize = 0;
-
-	getline(&line, &bufsize, stdin);
-
-	return (line);
+char *line = NULL;
+size_t bufsize = 0;
+getline(&line, &bufsize, stdin);
+return (line);
 }
 
 /**
@@ -50,7 +48,7 @@ char **parse_line(char *line)
 	tokens = malloc(sizeof(char *) * 1024);
 	if (tokens == NULL)
 {
-		fprintf(stderr, "Error: Memory allocation failed. \n");
+     		fprintf(stderr, "Error: memory allocation failed. \n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -67,7 +65,7 @@ char **parse_line(char *line)
 }
 
 /**
- * execute_command - Execute a command using the function(execvp)
+ * execute_command - Executes a command using the function(execvp)
  * @ar: Array of arguments for the command.
  *
  * Return: 1 (if successful), 0 (if failled).
