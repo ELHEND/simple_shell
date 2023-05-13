@@ -21,6 +21,7 @@ return (0);
  *
  * Return: pointer to the line.
  */
+
 char *read_line(void)
 {
 char *line = NULL;
@@ -35,6 +36,7 @@ return (line);
  *
  * Return: An array of pointers to tokens.
  */
+
 char **parse_line(char *line)
 {
 char **tokens = NULL;
