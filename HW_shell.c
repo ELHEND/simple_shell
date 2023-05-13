@@ -67,8 +67,7 @@ char **parse_line(char *line)
 /**
  *  * execute_command - Execute a command using execvp.
  *   * @ar: Array of arguments for the command.
- *    *
- *     * Return: 1 on success, 0 on failure.
+ * Return: 1 on success, 0 on failure.
  */
 int execute_command(char **ar)
 {
