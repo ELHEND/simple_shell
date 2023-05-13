@@ -14,6 +14,7 @@
 
 /* HW_beaucode.c */
 void print_to_98(int n);
+
 /* HW_shell.c */
 char *read_line(void);
 char **parse_line(char *line);
