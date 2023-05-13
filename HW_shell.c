@@ -22,8 +22,7 @@ int main(void)
 
 /**
  *  * read_line - Read a line from stdin.
- *   *
- *    * Return: A pointer to the line.
+ * Return: A pointer to the line.
  */
 char *read_line(void)
 {
