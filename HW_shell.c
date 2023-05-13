@@ -21,8 +21,9 @@ int main(void)
 }
 
 /**
- *  * read_line - Read a line from stdin.
- * Return: A pointer to the line.
+ * *read_line - Read the input line from stdin
+ *
+ * Return: pointer to the line.
  */
 char *read_line(void)
 {
@@ -35,8 +36,9 @@ char *read_line(void)
 }
 
 /**
- *  * parse_line - Split a string into tokens.
- *   * @line: the string to tokenize.
+ * *parse_line - Splits a string into multiple tokens.
+ * @line: the string to token size.
+ *
  * Return: An array of pointers to tokens.
  */
 char **parse_line(char *line)
@@ -65,9 +67,10 @@ char **parse_line(char *line)
 }
 
 /**
- *  * execute_command - Execute a command using execvp.
- *   * @ar: Array of arguments for the command.
- * Return: 1 on success, 0 on failure.
+ * execute_command - Execute a command using the function(execvp)
+ * @ar: Array of arguments for the command.
+ *
+ * Return: 1 (if successful), 0 (if failled).
  */
 int execute_command(char **ar)
 {
