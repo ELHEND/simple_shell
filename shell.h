@@ -22,8 +22,10 @@ void print_to_98(int n);
 char *read_line(void);
 char **parse_line(char *line);
 int execute_command(char **ar);
+
 /* HW_2shell.c */
 char *read_line(void);
 char **split_line(char *line);
 int execute(char **args);
+
 #endif
