@@ -1,6 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
-#define MAX_CMD_LEN 100
+#define TOKEN_BUFSIZE 64
+#define TOKEN_DELIM " \t\r\n\a"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +13,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-
+/* main.c */
+int main(void);
 /* HW_beaucode.c */
 void print_to_98(int n);
 
@@ -21,7 +23,7 @@ char *read_line(void);
 char **parse_line(char *line);
 int execute_command(char **ar);
 /* HW_2shell.c */
-int read_command(char **cmd);
-int execute_command(char **args);
-
+char *read_line(void);
+char **split_line(char *line);
+int execute(char **args);
 #endif
