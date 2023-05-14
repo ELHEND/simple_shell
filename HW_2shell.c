@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * main - function for simple shell 0.1
  *
