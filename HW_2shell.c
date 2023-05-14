@@ -4,6 +4,7 @@
  *
  * Return: 0 in all cases.
  */
+
 int main(void)
 {
 char *line;
@@ -19,11 +20,13 @@ free(args);
 } while (status);
 return (0);
 }
+
 /**
  * read_line - reads the input line from stdin.
  *
  * Return: a pointer to the line.
  */
+
 char *read_line(void)
 {
 char *line = NULL;
@@ -38,6 +41,7 @@ return (line);
  *
  * Return: pointer to the array of tokens.
  */
+
 char **split_line(char *line)
 {
 int bufsize = TOKEN_BUFSIZE, position = 0;
