@@ -63,8 +63,9 @@ return (tokens);
  * execute_command - Executes a command using the function(execvp)
  * @ar: Array of arguments for the command.
  *
- * Return: 1 (if successful), 0 (if failled).
+ * Return: 1 (if success), 0 (if failure).
  */
+
 int execute_command(char **ar)
 {
 pid_t pid;
