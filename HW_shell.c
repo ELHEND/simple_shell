@@ -1,5 +1,4 @@
 #include "shell.h"
-
 int main(void)
 {
 char *line = NULL;
