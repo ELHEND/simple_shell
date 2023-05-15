@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ *  * main - Entry point of the shell
+ *   *
+ *    * Return: Always 0
+ */
 int main(void)
 {
 char *line = NULL;
@@ -77,7 +82,8 @@ pid = fork();
 if (pid == 0)
 {
 /* child process */
-if (execvp(ar[0], ar) == -1)
+if (execve(ar[0], ar, NULL) == -1)
+
 {
 perror("Error");
 }
