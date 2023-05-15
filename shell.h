@@ -13,6 +13,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+
 /* main.c */
 int main(void);
 /* HW_beaucode.c */
