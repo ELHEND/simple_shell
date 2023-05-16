@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *  * main - Entry point of the shell
- *   *
- *    * Return: Always 0
+ * main - the entry point of the shell
+ *
+ * Return: Always 0
  */
 int main(void)
 {
@@ -29,8 +29,8 @@ int main(void)
 }
 
 /**
- *  * execute - Execute a command with its arguments
- *   * @args: An array of strings representing the command and its arguments
+ * execute - Executes a command with its arguments
+ *   * @args: An array of strings contains the command and its arguments
  *    *
  *     * Return: Always 1 to continue execution, or 0 to exit
  */
