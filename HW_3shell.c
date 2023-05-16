@@ -30,9 +30,9 @@ int main(void)
 
 /**
  * execute - Executes a command with its arguments
- *   * @args: An array of strings contains the command and its arguments
- *    *
- *     * Return: Always 1 to continue execution, or 0 to exit
+ * @args: An array of strings contains the command and its arguments
+ * 
+ * Return: 1 to continue execution, or 0 to exit
  */
 int execute(char **args)
 {
@@ -68,10 +68,10 @@ int execute(char **args)
 	return (1);
 }
 /**
- *  * split_line - Split a string into an array of strings
- *   * @line: The input string to be splitted
- *    *
- *     * Return: An array of strings with the splitted line
+ * split_line - Splits the input string into an array of strings
+ * @line: The input string to be splitted.
+ *
+ * Return: An array of strings of the splitted lines.
  */
 char **split_line(char *line)
 {
