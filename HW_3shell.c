@@ -5,6 +5,7 @@
  *
  * Return: Always 0
  */
+
 int main(void)
 {
 	char *line = NULL;
@@ -34,6 +35,7 @@ int main(void)
  * 
  * Return: 1 to continue execution, or 0 to exit
  */
+
 int execute(char **args)
 {
 	pid_t pid;
@@ -73,6 +75,7 @@ int execute(char **args)
  *
  * Return: An array of strings of the splitted lines.
  */
+
 char **split_line(char *line)
 {
 	int bufsize = 64, position = 0;
