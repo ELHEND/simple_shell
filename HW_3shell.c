@@ -4,7 +4,7 @@
  *  * main - Entry point of the shell
  *   *
  *    * Return: Always 0
- *     */
+ */
 int main(void)
 {
 	char *line = NULL;
@@ -28,14 +28,12 @@ int main(void)
 	return (0);
 }
 
-#include "shell.h"
-
 /**
  *  * execute - Execute a command with its arguments
  *   * @args: An array of strings representing the command and its arguments
  *    *
  *     * Return: Always 1 to continue execution, or 0 to exit
- *      */
+ */
 int execute(char **args)
 {
 	pid_t pid;
@@ -69,15 +67,12 @@ int execute(char **args)
 
 	return (1);
 }
-
-#include "shell.h"
-
 /**
  *  * split_line - Split a string into an array of strings
  *   * @line: The input string to be splitted
  *    *
  *     * Return: An array of strings with the splitted line
- *      */
+ */
 char **split_line(char *line)
 {
 	int bufsize = 64, position = 0;

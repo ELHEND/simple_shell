@@ -28,5 +28,7 @@ int execute_command(char **ar);
 char *read_line(void);
 char **split_line(char *line);
 int execute(char **args);
-
+/*  HW_3shell.c */
+int execute(char **args);
+char **split_line(char *line);
 #endif
