@@ -32,5 +32,8 @@ int execute(char **args);
 int execute(char **args);
 char **split_line(char *line);
 /* HW-4shell.c */
-void exit_shell(void);
+int execute_command(char **args);
+char **parse_input(char *input);
+void free_args(char **args);
+int exit_shell(void);
 #endif
