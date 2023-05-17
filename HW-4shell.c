@@ -25,6 +25,7 @@ return (EXIT_SUCCESS);
  *
  * Return: 1 (if continue running), 0 (if exit)
  */
+
 int execute_command(char **args)
 {
 if (args == NULL || args[0] == NULL)
@@ -40,6 +41,7 @@ return (1);
  *
  * Return: An array of argument strings
  */
+
 char **parse_input(char *input)
 {
 int i = 0;
@@ -63,6 +65,7 @@ return (args);
  *
  * @args: The array of argument strings to free
  */
+
 void free_args(char **args)
 {
 int i;
