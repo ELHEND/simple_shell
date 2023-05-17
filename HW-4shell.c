@@ -79,6 +79,7 @@ free(args);
  *
  * Return: Always returns 0
  */
+
 int exit_shell(void)
 {
 printf("Exiting shell...\n");
