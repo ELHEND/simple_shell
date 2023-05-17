@@ -31,4 +31,6 @@ int execute(char **args);
 /*  HW_3shell.c */
 int execute(char **args);
 char **split_line(char *line);
+/* HW-4shell.c */
+void exit_shell(void);
 #endif
