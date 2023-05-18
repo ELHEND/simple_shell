@@ -1,79 +1,38 @@
-#include "shell.h"
+nclude "shell.h"
 
+/**
+ *  * main - Entry point to the simple shell program
+ *   *
+ *    * Return: Always 0 on success
+ *     */
 int main(void)
 {
-	char *buffer = NULL;
-	size_t bufsize = 0;
-	ssize_t nread;
-	char *token;
-	const char delimiter[2] = " ";
-	char *args[100];
-	int i = 0;
+	char *line = NULL;
+	size_t len = 0;
+	ssize_t read;
 
 	while (1)
 	{
 		printf("$ ");
-		nread = getline(&buffer, &bufsize, stdin);
-		if (nread == -1)
-		{
-			perror("getline");
-			exit(EXIT_FAILURE);
-		}
-
-		token = strtok(buffer, delimiter);
-		while (token != NULL)
-		{
-			args[i++] = token;
-			token = strtok(NULL, delimiter);
-		}
-		args[i-1][strlen(args[i-1]) - 1] = '\0';
-
-		if (strcmp(args[0], "env") == 0)
-		{
-			print_env();
-		}
-		else if (strcmp(args[0], "exit") == 0)
-		{
-			free(buffer);
-			exit(EXIT_SUCCESS);
-		}
+		read = getline(&line, &len, stdin);
+		if (read == -1)
+			break;
+		else if (strcmp(line, "exit\n") == 0)
+			exit_shell();
 		else
-		{
-			pid_t pid = fork();
-			if (pid == 0)
-			{
-				execvp(args[0], args);
-				perror("execvp");
-				exit(EXIT_FAILURE);
-			}
-			else if (pid < 0)
-			{
-				perror("fork");
-				exit(EXIT_FAILURE);
-			}
-			else
-			{
-				wait(NULL);
-			}
-		}
-
-		i = 0;
+			printf("Command not found: %s", line);
 	}
 
-	return 0;
+	free(line);
+	return (0);
 }
 
 /**
- *  * print_env - print current environment variables
- *   */
-void print_env(void)
+ *  * exit_shell - Exits the shell
+ *   *
+ *    * Return: Nothing
+ *     */
+void exit_shell(void)
 {
-	extern char **environ;
-	char **env = environ;
-
-	while (*env != NULL)
-	{
-		printf("%s\n", *env);
-		env++;
-	}
+	exit(EXIT_SUCCESS);
 }
