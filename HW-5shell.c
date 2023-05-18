@@ -1,10 +1,10 @@
-nclude "shell.h"
+#include "shell.h"
 
 /**
  *  * main - Entry point to the simple shell program
  *   *
  *    * Return: Always 0 on success
- *     */
+ */
 int main(void)
 {
 	char *line = NULL;
