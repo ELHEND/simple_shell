@@ -37,5 +37,7 @@ char **parse_input(char *input);
 void free_args(char **args);
 int exit_shell(void);
 /* HW-5shell. c */
-void execute_cmd(char **args);
+
+void print_environment(void);
+extern char **environ;
 #endif
