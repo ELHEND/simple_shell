@@ -1,38 +1,39 @@
-#include "shell.h"
+nclude "shell.h"
+
+extern char **environ;
 
 /**
- *  * main - Entry point to the simple shell program
+ *  * print_environment - prints the current environment
+ *   */
+void print_environment(void)
+{
+	char **env = environ;
+	while (*env != NULL) {
+		printf("%s\n", *env);
+		env++;
+	}
+}
+
+/**
+ *  * main - simple shell program
  *   *
- *    * Return: Always 0 on success
- */
+ *    * Return: 0 on success
+ *     */
 int main(void)
 {
-	char *line = NULL;
-	size_t len = 0;
-	ssize_t read;
+	char command[100];
 
-	while (1)
-	{
+	while (1) {
 		printf("$ ");
-		read = getline(&line, &len, stdin);
-		if (read == -1)
+		fgets(command, sizeof(command), stdin);
+
+		if (strcmp(command, "env\n") == 0) {
+			print_environment();
+		} else if (strcmp(command, "exit\n") == 0) {
 			break;
-		else if (strcmp(line, "exit\n") == 0)
-			exit_shell();
-		else
-			printf("Command not found: %s", line);
+		}
 	}
 
-	free(line);
-	return (0);
+	return 0;
 }
 
-/**
- *  * exit_shell - Exits the shell
- *   *
- *    * Return: Nothing
- */
-int  exit_shell(void)
-{
-	exit(EXIT_SUCCESS);
-}
