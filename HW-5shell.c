@@ -31,8 +31,8 @@ int main(void)
  *  * exit_shell - Exits the shell
  *   *
  *    * Return: Nothing
- *     */
-void exit_shell(void)
+ */
+int  exit_shell(void)
 {
 	exit(EXIT_SUCCESS);
 }
