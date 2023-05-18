@@ -36,4 +36,9 @@ int execute_command(char **args);
 char **parse_input(char *input);
 void free_args(char **args);
 int exit_shell(void);
+/* HW-5shell. c */
+int read_command(char **args);
+int execute_command(char **args, char **envp);
+int do_builtin(char **args, int *status);
+int env_builtin(void);
 #endif
