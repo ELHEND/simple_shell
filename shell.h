@@ -37,6 +37,7 @@ char **parse_input(char *input);
 void free_args(char **args);
 int exit_shell(void);
 
+<<<<<<< HEAD
 /* HW-5shell.c */
 void print_prompt(void);
 char *read_input(void);
@@ -46,4 +47,8 @@ int execute_command(char **args);
 void exit_builtin(void);
 void env_builtin(char **environ);
 extern char **environ;
+=======
+int execute(char **args);
+int execute_builtin(char **args);
+>>>>>>> bf75febb39a7d9273b87a935c862be62205c144c
 #endif
