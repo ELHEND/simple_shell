@@ -36,8 +36,14 @@ int execute_command(char **args);
 char **parse_input(char *input);
 void free_args(char **args);
 int exit_shell(void);
-/* HW-5shell. c */
 
-void print_environment(void);
+/* HW-5shell.c */
+void print_prompt(void);
+char *read_input(void);
+/* HW-52shell.c */
+char **parse_input(char *input);
+int execute_command(char **args);
+void exit_builtin(void);
+void env_builtin(char **environ);
 extern char **environ;
 #endif
