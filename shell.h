@@ -13,7 +13,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#define MAX_INPUT 1024
 #define MAX_TOKENS 100
 
 /* main.c */
