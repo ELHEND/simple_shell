@@ -1,11 +1,10 @@
 #include "shell.h"
 
 /**
- *  * main - entry point for the shell
- *   *
- *    * Return: always 0 on success, -1 on failure.
- *     */
-
+ * main - entry point for the shell
+ *
+ * Return: always 0 on success, -1 on failure.
+ */
 int main(void)
 {
 	char *input, **tokens;
@@ -27,14 +26,12 @@ int main(void)
 	return (0);
 }
 
-#include "shell.h"
 
 /**
- *  * get_input - gets input from user
- *   *
- *    * Return: input on success, NULL on failure.
- *     */
-
+ * get_input - gets input from user
+ *
+ * Return: input on success, NULL on failure.
+ */
 char *get_input(void)
 {
 	static char buffer[MAX_INPUT];
@@ -61,11 +58,11 @@ char *get_input(void)
 }
 
 /**
- *  * tokenize - tokenizes a string
- *   * @input: string to be tokenized
- *    *
- *     * Return: array of tokens on success, NULL on failure.
- *      */
+ * tokenize - tokenizes a string
+ * @input: string to be tokenized
+ *
+ * Return: array of tokens on success, NULL on failure.
+ */
 
 char **tokenize(char *input)
 {
@@ -90,15 +87,13 @@ char **tokenize(char *input)
 	return (tokens);
 }
 
-#include "shell.h"
 
 /**
- *  * built_in - checks if command is a shell builtin
- *   * @tokens: array of tokens
- *    *
- *     * Return: 0 if command exists and is executed, else return 1.
- *      */
-
+ * built_in - checks if command is a shell builtin
+ * @tokens: array of tokens
+ *
+ * Return: 0 if command exists and is executed, else return 1.
+ */
 int built_in(char **tokens)
 {
 	/* list of builtin commands */
@@ -119,12 +114,11 @@ int built_in(char **tokens)
 }
 
 /**
- *  * execute - executes a command
- *   * @tokens: array of tokens
- *    *
- *     * Return: always 0 on success, -1 on failure.
- *      */
-
+ * execute - executes a command
+ * @tokens: array of tokens
+ *
+ * Return: always 0 on success, -1 on failure.
+ */
 int execute(char **args)
 {
 	pid_t pid;
@@ -150,8 +144,7 @@ int execute(char **args)
 	else
 	{
 		/* parent process */
-		do
-		{
+		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
