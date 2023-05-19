@@ -38,6 +38,6 @@ void free_args(char **args);
 int exit_shell(void);
 /* HW-5shell. c */
 
-void print_environment(void);
-extern char **environ;
+int execute(char **args);
+int execute_builtin(char **args);
 #endif
