@@ -1,9 +1,8 @@
 #include "shell.h"
-
 /**
- * main - entry point for the shell
- *
- * Return: always 0 on success, -1 on failure.
+ *  * main - entry point for the shell
+ *   *
+ *    * Return: always 0 on success, -1 on failure.
  */
 int main(void)
 {
@@ -13,7 +12,7 @@ int main(void)
 	while (1)
 	{
 		printf("$ ");
-		input = get_input();
+		input = custom_getline();
 		tokens = tokenize(input);
 		status = built_in(tokens) == 0 ? 0 : 1;
 		if (status == 0 && tokens[0] != NULL)
@@ -26,44 +25,53 @@ int main(void)
 	return (0);
 }
 
-
 /**
- * get_input - gets input from user
- *
- * Return: input on success, NULL on failure.
+ *  * custom_getline - gets input from user
+ *   *
+ *    * Return: input on success, NULL on failure.
  */
-char *get_input(void)
+
+
+char *custom_getline(void)
 {
 	static char buffer[MAX_INPUT];
-	int c;
-	unsigned int i = 0;
+	static int pos;
+	static int size;
 
-	while ((c = getchar()) != '\n' && c != EOF)
-	{
-		buffer[i] = c;
-		i++;
-		if (i >= MAX_INPUT)
-		{
-			fprintf(stderr, "error: input too long\n");
-			exit(EXIT_FAILURE);
-		}
+	/*Initialization*/
+	if (!pos && !size)
+
+{
+		pos = 0;
+		size = 0;
 	}
 
-	if (c == EOF)
-		exit(EXIT_SUCCESS);
+	while (1)
+	{
+		if (pos == size)
+		{
+			pos = 0;
+			size = read(STDIN_FILENO, buffer, MAX_INPUT);
+			if (size == 0 || size == -1)
+				exit(EXIT_FAILURE);
+		}
+		char c = buffer[pos];
 
-	buffer[i] = '\0';
-
-	return (strdup(buffer));
+		pos++;
+		if (c == '\n')
+		{
+			buffer[pos - 1] = '\0';
+			return (strdup(buffer));
+		}
+	}
 }
 
 /**
- * tokenize - tokenizes a string
- * @input: string to be tokenized
- *
- * Return: array of tokens on success, NULL on failure.
+ *  * tokenize - tokenizes a string
+ *   * @input: string to be tokenized
+ *    *
+ *     * Return: array of tokens on success, NULL on failure.
  */
-
 char **tokenize(char *input)
 {
 	char *token;
@@ -87,12 +95,11 @@ char **tokenize(char *input)
 	return (tokens);
 }
 
-
 /**
- * built_in - checks if command is a shell builtin
- * @tokens: array of tokens
- *
- * Return: 0 if command exists and is executed, else return 1.
+ *  * built_in - checks if command is a shell builtin
+ *   * @tokens: array of tokens
+ *    *
+ *     * Return: 0 if command exists and is executed, else return 1.
  */
 int built_in(char **tokens)
 {
@@ -114,10 +121,10 @@ int built_in(char **tokens)
 }
 
 /**
- * execute - executes a command
- * @tokens: array of tokens
- *
- * Return: always 0 on success, -1 on failure.
+ *  * execute - executes a command
+ *   * @args: array of tokens
+ *    *
+ *     * Return: always 0 on success, -1 on failure.
  */
 int execute(char **args)
 {
@@ -148,4 +155,7 @@ int execute(char **args)
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
+
+	return (0);
 }
+

@@ -42,8 +42,9 @@ int exit_shell(void);
 int execute(char **args);
 int execute_builtin(char **args);
 /* HW_6shell.c */
-char **tokenize(char *);
-char *get_input(void);
+char *custom_getline(void);
+char **tokenize(char *input);
+int built_in(char **tokens);
 int execute(char **args);
-int built_in(char **);
+
 #endif
