@@ -38,7 +38,7 @@ char *custom_getline(void)
 	static char buffer[MAX_INPUT];
 	static int pos;
 	static int size;
-
+        char c;
 	/*Initialization*/
 	if (!pos && !size)
 
@@ -56,7 +56,7 @@ char *custom_getline(void)
 			if (size == 0 || size == -1)
 				exit(EXIT_FAILURE);
 		}
-		char c = buffer[pos];
+		c = buffer[pos];
 
 		pos++;
 		if (c == '\n')
@@ -104,11 +104,12 @@ char **tokenize(char *input)
  */
 int built_in(char **tokens)
 {
+	int i;
 	/* list of builtin commands */
 	char *builtins[] = {"exit", NULL};
 
 	/* check if command is a builtin command */
-	for (int i = 0; builtins[i]; i++)
+	for (i = 0; builtins[i]; i++)
 	{
 		if (strcmp(tokens[0], builtins[i]) == 0)
 		{
