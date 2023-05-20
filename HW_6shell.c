@@ -4,6 +4,7 @@
  *   *
  *    * Return: always 0 on success, -1 on failure.
  */
+
 int main(void)
 {
 	char *input, **tokens;
