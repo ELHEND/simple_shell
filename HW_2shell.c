@@ -7,10 +7,13 @@
 
 int main(void)
 {
-char *line;
-char **args;
-int status;
-do {
+	char *line;
+	char **args;
+	int status;
+
+do
+
+{
 printf("$ ");
 line = read_line();
 args = split_line(line);
@@ -26,17 +29,21 @@ return (0);
  *
  * Return: a pointer to the line.
  */
-
 char *read_line(void)
 {
-char *line = NULL;
-ssize_t bufsize = 0;
-getline(&line, &bufsize, stdin);
-return (line);
+	char *line = NULL;
+	size_t bufsize = 0;
+
+	getline(&line, &bufsize, stdin);
+
+	return (line);
 }
 
+
+
 /**
- * split_line - splits the line into an array of tokens.
+ * split_line - splits the lineize_t bufsize = 0;
+ * into an array of tokens.
  * @line: pointer to the string.
  *
  * Return: pointer to the array of tokens.
@@ -44,9 +51,10 @@ return (line);
 
 char **split_line(char *line)
 {
-int bufsize = TOKEN_BUFSIZE, position = 0;
-char **tokens = malloc(bufsize * sizeof(char *));
-char *token;
+	int bufsize = TOKEN_BUFSIZE, position = 0;
+	char **tokens = malloc(bufsize * sizeof(char *));
+	char *token;
+
 if (!tokens)
 exit(EXIT_FAILURE);
 token = strtok(line, TOKEN_DELIM);
@@ -75,28 +83,30 @@ return (tokens);
  */
 int execute(char **args)
 {
-pid_t pid;
-int status;
-if (args[0] == NULL)
-return (1);
-pid = fork();
-if (pid == 0)
-{
-if (execvp(args[0], args) == -1)
-{
-perror("Error");
-}
-exit(EXIT_FAILURE);
-}
-else if (pid < 0)
-{
-perror("Error");
-}
-else
-{
-do {
-waitpid(pid, &status, WUNTRACED);
-} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-}
-return (1);
+	pid_t pid;
+	int status;
+
+	if (args[0] == NULL)
+
+		return (1);
+	pid = fork();
+	if (pid == 0)
+	{
+		if (execvp(args[0], args) == -1)
+		{
+			perror("Error");
+		}
+		exit(EXIT_FAILURE);
+	}
+	else if (pid < 0)
+	{
+		perror("Error");
+	}
+	else
+	{
+		do {
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	}
+	return (1);
 }
