@@ -4,7 +4,7 @@
  *  * main - Initialize shell loop
  *   *
  *    * Return: Always 0 on success
- *     */
+ */
 int main(void)
 {
 	char *buffer, **tokens;
@@ -30,7 +30,7 @@ int main(void)
 	}
 
 	free(buffer);
-	return 0;
+	return (0);
 }
 
 
@@ -39,7 +39,7 @@ int main(void)
  *   * @input: User input string
  *    *
  *     * Return: Array of command tokens
- *      */
+ */
 char **parse_input(char *input)
 {
 	const char *DELIMITERS = " \t\n";
@@ -63,7 +63,7 @@ char **parse_input(char *input)
 	}
 
 	tokens[position] = NULL;
-	return tokens;
+	return (tokens);
 }
 
 /**
@@ -71,7 +71,7 @@ char **parse_input(char *input)
  *   * @args: Command and arguments
  *    *
  *     * Return: Always 1
- *      */
+ */
 int execute(char **args)
 {
 	pid_t pid;
@@ -96,10 +96,11 @@ int execute(char **args)
 	{
 		/* Parent process */
 		do
+
 		{
-			waitpid(pid, &status, WUNTRACED);
+		waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 
-	return 1;
+	return (1);
 }
