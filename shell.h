@@ -14,7 +14,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #define MAX_TOKENS 100
-
+#define BUFSIZE 1024
 /* main.c */
 int main(void);
 /* HW_beaucode.c */
