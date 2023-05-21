@@ -46,5 +46,7 @@ char *custom_getline(void);
 char **tokenize(char *input);
 int built_in(char **tokens);
 int execute(char **args);
-
+/* HE-7shell.c */
+char **parse_input(char *input);
+int execute(char **args);
 #endif
