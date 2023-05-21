@@ -10,7 +10,21 @@ int main(void)
 	char *buffer, **tokens;
 	size_t bufsize = BUFSIZE;
 	int status;
+	pid_t pid = fork();
 
+	if (pid == -1)
+	{
+	printf("Error: fork failed\n");
+	}
+	else if (pid == 0)
+	{
+
+	}
+	else
+	{
+	waitpid(pid, &status, 0);
+	printf("Child process exited with status %d\n", status);
+	}
 	buffer = malloc(sizeof(char) * bufsize);
 	if (!buffer)
 	{
