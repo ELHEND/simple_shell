@@ -76,7 +76,6 @@ int HW_cd(info_t *info)
 		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
 		_setenv(info, "PWD", getcwd(buffer, 1024));
 	}
-
 	return (0);
 }
 /**
