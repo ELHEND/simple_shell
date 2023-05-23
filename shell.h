@@ -203,7 +203,6 @@ int populate_env_list(info_t *);
 char **get_environ(info_t *);
 int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
-
 /* HW_history.c */
 char *history_file(info_t *info);
 int writes_history(info_t *info);
