@@ -9,38 +9,39 @@
  */
 ssize_t input_BUF(info_t *info, char **BUF, size_t *len)
 {
-	ssize_t R = 0;
-	size_t len_P = 0;
+ssize_t R = 0;
+size_t len_P = 0;
 
-	if (!len)
-	{
-		/* bfree((void *)info->cmd_BUF);*/
-			free(*BUF);
-		*BUF = NULL;
-		signal(SIGINT, sigintHandler);
+if (!len)
+
+{
+/* bfree((void *)info->cmd_BUF);*/
+free(*BUF);
+*BUF = NULL;
+signal(SIGINT, sigintHandler);
 #if USE_GETLINE
-		R = getline(BUF, &len_P, stdin);
+R = getline(BUF, &len_P, stdin);
 #else
-		R = _getline(info, BUF, &len_P);
+R = _getline(info, BUF, &len_P);
 #endif
-		if (R > 0)
-		{
-			if ((*BUF)[R - 1] == '\n')
-			{
-				(BUF)[R - 1] = '\0';
-				r--;
-			}
-			info->linecount_flag = 1;
-			remove_comments(*BUF);
-			build_history_list(info, *BUF, info->histcount++);
-			/* if (_strchr(*BUF, ';')) is this a command chain? */
-			{
-				*len = R;
-				info->cmd_BUF= BUF;
-			}
-		}
-	}
-	return (R);
+if (R > 0)
+{
+if ((*BUF)[R - 1] == '\n')
+{
+(BUF)[R - 1] = '\0';
+R--;
+}
+info->linecount_flag = 1;
+remove_comments(*BUF);
+build_history_list(info, *BUF, info->histcount++);
+/* if (_strchr(*BUF, ';')) is this a command chain? */
+{
+*len = R;
+info->cmd_BUF = BUF;
+}
+}
+}
+return (R);
 }
 
 /**
@@ -124,7 +125,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	ssize_t R = 0, s = 0;
 	char *P = NULL, *NEW_p = NULL, *c;
 
-	P= *ptr;
+	P = *ptr;
 	if (P && length)
 		s = *length;
 	if (m == len)
@@ -136,7 +137,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 
 	c = _strchr(BUF + m, '\n');
 	e = c ? 1 + (unsigned int)(c - BUF) : len;
-	new_P= _realloc(P, s, s ? s + e : e + 1);
+	new_P = _realloc(P, s, s ? s + e : e + 1);
 	if (!NEW_P) /* MALLOC FAILURE! */
 		return (P ? free(P), -1 : -1);
 
