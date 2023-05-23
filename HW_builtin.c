@@ -1,13 +1,15 @@
 #include "shell.h"
+
 /**
  * * HW_exit - exits the shell.
  * * @info: Structure containing arguments.
  * *
  * * Return: (0) if info.argv[0] != "exit"
- * */
+ */
 int HW_exit(info_t *info)
 {
 	int excheck;
+
 	if (info->argv[1]) /* If there is an exit arguement */
 	{
 		excheck = HW_erratoi(info->argv[1]);
@@ -30,11 +32,12 @@ int HW_exit(info_t *info)
  * * @info: Structure containing arguments.
  * *
  * * Return: Always 0.
- * */
+ */
 int HW_cd(info_t *info)
 {
 	char *s, *dir, buffer[1024];
 	int chd_ret;
+
 	s = getcwd(buffer, 1024);
 	if (!s)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
@@ -42,6 +45,7 @@ int HW_cd(info_t *info)
 	{
 		dir = _getenv(info, "HOME=");
 		if (!dir)
+
 			chd_ret = /* TODO: what should this be? */
 				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
 		else
@@ -56,6 +60,7 @@ int HW_cd(info_t *info)
 			return (1);
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
+
 		chd_ret = /* TODO: what should this be? */
 			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
 	}
@@ -71,6 +76,7 @@ int HW_cd(info_t *info)
 		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
 		_setenv(info, "PWD", getcwd(buffer, 1024));
 	}
+
 	return (0);
 }
 /**
@@ -78,10 +84,11 @@ int HW_cd(info_t *info)
  * * @info: Structure containing arguments.
  *  *
  *  * Return: Always 0
- *  */
+ */
 int HW_help(info_t *info)
 {
 	char **arg_ar;
+
 	arg_ar = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
