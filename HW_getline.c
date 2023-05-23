@@ -13,7 +13,6 @@ ssize_t R = 0;
 size_t len_P = 0;
 
 if (!len)
-
 {
 /* bfree((void *)info->cmd_BUF);*/
 free(*BUF);
