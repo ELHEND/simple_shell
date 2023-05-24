@@ -12,8 +12,8 @@ int status = 0;
 do {
 printf("#cisfun$ ");
 line = read_line();
-args = parse_line(line);
-status = execute_command(args);
+ar = parse_line(line);
+status = execute_command(ar);
 free(line);
 free(args);
 } while (status);
