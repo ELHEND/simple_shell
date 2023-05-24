@@ -17,3 +17,6 @@ char **parse_line(char *line);
 int execute_command(char **ar);
 /* HW_2execute.c */
 int execute(char **args);
+/* HW_exit.c */
+void free_args(char **args);
+int exit_shell(void);
