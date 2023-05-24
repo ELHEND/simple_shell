@@ -9,28 +9,40 @@ int execute_command(char **ar)
 {
 pid_t pid;
 int status;
-if (ar[0] == NULL) {
+if (ar[0] == NULL)
+{
 return (1);
 if (strcmp(ar[0], "exit") == 0)
 return (exit_shell());
 return (1);
 }
 pid = fork();
-if (pid == 0) {
+if (pid == 0)
+{
 /* Child process */
 char *program_path = "/usr/bin/ls";
-if (execv(program_path, ar) == -1) {
+if (execv(program_path, ar) == -1)
+{
 perror("Error");
 }
 exit(EXIT_FAILURE);
-} else if (pid < 0) {
+}
+else if (pid < 0)
+{
 /* Error forking */
 perror("Error");
-} else {
+}
+else
+{
 /* Parent process */
-do {
+do
+
+{
 waitpid(pid, &status, WUNTRACED);
-} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+}
+
+while
+(!WIFEXITED(status) && !WIFSIGNALED(status));
 }
 return (1);
 }
