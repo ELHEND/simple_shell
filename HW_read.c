@@ -11,6 +11,7 @@ size_t bufsize = 0;
 getline(&line, &bufsize, stdin);
 return (line);
 }
+
 /**
 * parse_line - Splits a string into multiple tokens.
 * @line: The string to token size.

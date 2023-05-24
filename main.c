@@ -1,21 +1,21 @@
 #include "shell.h"
 /**
-* main - main function 1
+* main - main function
 *
-*Return: 0
+* Return : 0
 */
 int main(void)
 {
 char *line = NULL;
-char **args = NULL;
+char **ar = NULL;
 int status = 0;
 do {
 printf("#cisfun$ ");
 line = read_line();
-args = parse_line(line);
-status = execute_command(args);
+ar = parse_line(line);
+status = execute_command(ar);
 free(line);
-free(args);
+free(ar);
 } while (status);
 return (0);
 }
