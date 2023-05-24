@@ -24,12 +24,14 @@ char **tokens = NULL;
 char *token = NULL;
 int pos = 0;
 tokens = malloc(sizeof(char *) * 1024);
-if (tokens == NULL) {
+if (tokens == NULL)
+{
 fprintf(stderr, "Error: Memory allocation failed. \n");
 exit(EXIT_FAILURE);
 }
 token = strtok(line, " \t\n\r");
-while (token != NULL) {
+while (token != NULL)
+{
 tokens[pos] = token;
 pos++;
 token = strtok(NULL, " \t\n\r");
