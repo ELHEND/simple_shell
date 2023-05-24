@@ -11,6 +11,9 @@ pid_t pid;
 int status;
 if (ar[0] == NULL) {
 return (1);
+if (strcmp(ar[0], "exit") == 0)
+return (exit_shell());
+return (1);
 }
 pid = fork();
 if (pid == 0) {
