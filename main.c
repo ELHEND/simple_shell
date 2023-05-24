@@ -1,7 +1,8 @@
 #include "shell.h"
-/* main - main function 1 
- *
- *Return: 0
+/**
+* main - main function 1
+*
+*Return: 0
 */
 int main(void)
 {
