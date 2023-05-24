@@ -62,7 +62,7 @@ if (info->alias)
 frees_list(&(info->alias));
 ffree(info->environ);
 info->environ = NULL;
-ffree((void **)info->cmd_buf);
+ffree(info->cmd_buf);
 if (info->readfd > 2)
 close(info->readfd);
 _putchar(BUF_FLUSH);

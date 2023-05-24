@@ -21,7 +21,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 #if USE_GETLINE
         R = getline(buf, &len_p, stdin);
 #else
-        R = _getline(info, buf, &len_p);
+        R = _getline(info, *buf, &len_p); /* Corrected function call */
 #endif
         if (R > 0)
         {
@@ -155,3 +155,4 @@ void sigintHandler(__attribute__((unused))int sig_num)
     _puts("$ ");
     _putchar(BUF_FLUSH);
 }
+
