@@ -7,13 +7,13 @@
 *
 * Return: bytes.
 */
-ssize_t input_BUF(info_t *info, char **BUF, size_t *len)
+ssize_t input_BUF(info_t *info, char *BUF, size_t *len)
 {
 ssize_t R = 0;
 size_t len_P = 0;
 if (!len)
 {
-/*bfree((void *)info->cmd_BUF);*/
+/*bfree((void *)info->cmd_buf);*/
 free(*BUF);
 *BUF = NULL;
 signal(SIGINT, sigintHandler);
@@ -27,15 +27,15 @@ if (R > 0)
 if ((*BUF)[R - 1] == '\n')
 {
 (BUF)[R - 1] = '\0';
-r--;
+R--;
 }
 info->linecount_flag = 1;
 remove_comments(*BUF);
 build_history_list(info, *BUF, info->histcount++);
-/* if (_strchr(*BUF, ';')) is this a command chain? */
+if (_strchr(*BUF, ';')) /* is this a command chain? */
 {
 *len = R;
-info->cmd_BUF = BUF;
+info->cmd_buf = BUF;
 }
 }
 }
@@ -55,7 +55,7 @@ static size_t m, n, len;
 ssize_t R = 0;
 char **BUF_P = &(info->arg), *P;
 _putchar(BUF_FLUSH);
-R = input_BUF(info, &BUF, &len);
+R = input_BUF(info_t *info, char *BUF, size_t *len);
 if (R == -1) /* EOF */
 return (-1);
 if (len) /* we have commands left in the chain buffer */
@@ -73,7 +73,7 @@ m = n + 1; /* increment past nulled ';'' */
 if (m >= len) /* reached end of buffer? */
 {
 m = len = 0; /* reset position and length */
-info->cmd_BUF_type = CMD_NORM;
+info->cmd_buf_type = CMD_NORM;
 }
 BUF_P = P;
 return (_strlen(P));
@@ -125,16 +125,16 @@ if (R == -1 || (R == 0 && len == 0))
 return (-1);
 c = _strchr(BUF + m, '\n');
 e = c ? 1 + (unsigned int)(c - BUF) : len;
-new_P = _realloc(P, s, s ? s + e : e + 1);
-if (!NEW_P) /* MALLOC FAILURE! */
+NEW_p = HW_realloc(P, s, s ? s + e : e + 1);
+if (!NEW_p) /* MALLOC FAILURE! */
 return (P ? free(P), -1 : -1);
 if (s)
-_strncat(NEW_P, BUF + m, e - m);
+_strncat(NEW_p, BUF + m, e - m);
 else
-_strncpy(NEW_P, BUF + m, e - m + 1);
+_strncpy(NEW_p, BUF + m, e - m + 1);
 s += e - m;
 m = e;
-P = NEW_P;
+P = NEW_p;
 if (length)
 *length = s;
 *ptr = P;
