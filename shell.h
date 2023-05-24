@@ -1,3 +1,6 @@
+#ifndef SHELL_H
+#define SHELL_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -20,3 +23,4 @@ int execute(char **args);
 /* HW_exit.c */
 void free_args(char **args);
 int exit_shell(void);
+#endif /* SHELL_H */
