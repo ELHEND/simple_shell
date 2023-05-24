@@ -27,14 +27,6 @@
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
 
-/* 1 if using system getline() */
-#define USE_GETLINE 0
-#define USE_STRTOK 0
-
-#define HIST_FILE	".simple_shell_history"
-#define HIST_MAX	4096
-
-extern char **environ;
 
 
 /**
@@ -110,7 +102,11 @@ typedef struct builtin
 	int (*func)(info_t *);
 } builtin_table;
 
-
+/* HW_read.c */
+char *read_line(void);
+char **parse_line(char *line);
+/* HW_execute.c */
+int execute_command(char **ar);
 /* HW_shloop.c */
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
