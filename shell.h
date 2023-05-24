@@ -14,7 +14,7 @@ char *read_line(void);
 char **parse_line(char *line);
 
 /* HW_execute.c */
-int execute_command(char **args);
+int execute_command(char **ar);
 /* HW_2execute.c */
 int execute(char **args);
 /* HW_exit.c */
