@@ -1,3 +1,4 @@
+#include"shell.h"
 /**
  * execute_command - Executes a command using the function(execv)
  * @ar: Array of arguments for the command.
