@@ -57,7 +57,7 @@ ssize_t get_input(info_t *info)
 	_putchar(BUF_FLUSH);
 	r = input_buf(info, &buf, &len);
 	if (r == -1) /* EOF */
-		return (-2);
+		return (-1);
 	if (len)	/* we have commands left in the chain buffer */
 	{
 		j = m; /* init new iterator to current buf position */
