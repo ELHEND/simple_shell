@@ -72,7 +72,6 @@ int _myunsetenv(info_t *info)
 
 	return (0);
 }
-
 /**
  *  * populate_env_list - populates env linked list
  *   * @info: Structure containing potential arguments. Used to maintain
