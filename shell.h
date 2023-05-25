@@ -27,5 +27,10 @@ int execute_command(char **);
 int cd_builtin(char **);
 int env_builtin(char **);
 int execute_builtin_command(char **, char **);
+/*  HW-execut.c */
+extern char *path[];
+
+char *get_cmd_path(char *cmd);
+void prompt(void);
 #endif /* SHELL_H */
 
