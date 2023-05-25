@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- *  **_memset - fills memory with a constant byte
+ *  **_memset - Writes a constant byte to fill up memory.
  *   *@s: the pointer to the memory area
  *    *@b: the byte to fill *s with
  *     *@n: the amount of bytes to be filled
@@ -31,7 +31,7 @@ void ffree(char **pp)
 }
 
 /**
- *  * _realloc - reallocates a block of memory
+ *  * _realloc - Resizes a memory block
  *   * @ptr: pointer to previous malloc'ated block
  *    * @old_size: byte size of previous block
  *     * @new_size: byte size of new block
