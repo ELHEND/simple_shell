@@ -14,7 +14,7 @@ int _strlen(char *s)
 
 	while (*s++)
 		m++;
-	return (-m);
+	return (m);
 }
 /**
  *  * _strcmp - Returns the index of the first occurrence of
