@@ -1,6 +1,8 @@
 #include "shell.h"
 /**
- *  * clear_info - initializes info_t struct
+ *  * clear_info - Creates a new instance of the 'info_t'
+ *  *
+ *  structure with default values
  *   * @info: struct address
  */
 void clear_info(info_t *info)
@@ -11,7 +13,9 @@ void clear_info(info_t *info)
 	info->argc = 0;
 }
 /**
- *  * set_info - initializes info_t struct
+ *  * set_info - Initializes an instance of the 'info_t'
+ *  *
+ *  structure with default values.
  *   * @info: struct address
  *    * @av: argument vector
  */
