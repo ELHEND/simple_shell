@@ -141,7 +141,6 @@ char *_strchr(char *, char);
 /* toem_HW_tokenizer.c */
 char **strtow(char *, char *);
 char **strtow2(char *, char);
-
 /* toem_HW_realloc.c */
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
