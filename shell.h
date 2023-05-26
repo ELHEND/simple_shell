@@ -118,7 +118,6 @@ char *find_path(info_t *, char *, char *);
 
 /* HW_loophsh.c */
 int loophsh(char **);
-
 /* toem_HW_errors.c */
 void _eputs(char *);
 int _eputchar(char);
