@@ -134,7 +134,6 @@ char *_strcpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
-
 /* toem_HW_exits.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
