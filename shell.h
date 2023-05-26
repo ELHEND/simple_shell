@@ -130,7 +130,6 @@ int _strlen(char *);
 int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
-
 /* toem_HW_string1.c */
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
