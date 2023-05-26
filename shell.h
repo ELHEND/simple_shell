@@ -125,7 +125,6 @@ void _eputs(char *);
 int _eputchar(char);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
-
 /* toem_HW_string.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
